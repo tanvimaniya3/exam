@@ -68,3 +68,38 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+import axios from 'axios'
+import React,{ useEffect, useState} from 'react'
+import { Link, useParams } from 'react-router-dom'
+
+function products() {
+    const obj = useParams()
+    const[data,setdata] = useState([])
+    useEffect(()=>{
+        axios.get(`https://dummyjson.com/products/${obj.id}`)
+        .then((res)=>{
+            setdata(res.data)
+        })
+    },[])
+  return (
+    <div>
+      {
+      data.map((d)=>{
+        return( 
+          
+          
+          <>
+          <Link to={`/${d.id}`}><h1>{d.title}</h1>
+          <img src={d.thumbnail}/></Link>
+          </>)
+        
+
+      })
+    }
+    </div>
+  )
+}
+
+export default products

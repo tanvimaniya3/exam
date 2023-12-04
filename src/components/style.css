@@ -1,0 +1,15 @@
+#nav{
+    display: flex;
+    padding: 30px;
+    gap: 50px;
+    
+}  
+#navbar{
+    padding-right: 30px;
+    text-decoration: none;
+    color: black;
+    
+}
+#font{
+    margin-left: 50px;
+}
